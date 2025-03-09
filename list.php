@@ -26,7 +26,7 @@ if($_SESSION["evd_zaber_hamacek"]!= true){
 <select class="vstup hidden-print" id="rok" name="roky">
 
 	<?php 
-	include("../model/vypisroku.php");
+	include("other/vypisroku.php");
 	?>
 	</select>
 	<button class="vstup phoneonly hidden-print" onclick="podrob_zavr()">=
