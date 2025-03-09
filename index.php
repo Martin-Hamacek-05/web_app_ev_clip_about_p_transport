@@ -3,8 +3,8 @@
 <html>
 <head>
 <title id="demo">SEM ZADEJTE NÁZEV</title>
-<link rel="icon" type="image/x-icon" href="../styles/favicon.ico">
-<link rel="stylesheet" href="../styles/stylopis-old.css">
+<link rel="icon" type="image/x-icon" href="styles/favicon.ico">
+<link rel="stylesheet" href="styles/stylopis-old.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>
 
@@ -28,7 +28,7 @@ jméno<br>
 if(array_key_exists('login',$_POST)){
 	session_start();
 	
-	include("../model/connection.php");
+	include("other/connection.php");
 	$conn = new mysqli($servername, $username, $password, $dbname);
 	$sql = "select * from author where login_name='".$_POST['name']."'and user_password='".$_POST['password']."';";
 		$result = $conn->query($sql);
@@ -38,15 +38,15 @@ if(array_key_exists('login',$_POST)){
 					$_SESSION["name"] = $row['login_name'];
 					$_SESSION["isadmin"] = $row['is_admin'];
 					$_SESSION["evd_zaber_hamacek"] = true;
-					header('Location: /TP-2-0/view/list.php');
+					header('Location: /TP-2-0/web_app_ev_clip_about_p_transport/list.php');
 				} 
 				
 			} else {
-				header('Location: /TP-2-0/view/index.php');
+				header('Location: /TP-2-0/web_app_ev_clip_about_p_transport/index.php');
 			}
 		$conn->close();
 	
-	header("Location: /TP-2-0/view/list.php");
+	header("Location: /TP-2-0/web_app_ev_clip_about_p_transport/list.php");
 }
 ?>
 <script src="../js/info.js"></script>

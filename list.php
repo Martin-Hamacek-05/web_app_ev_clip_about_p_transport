@@ -1,15 +1,15 @@
 <?php
 session_start();
 if($_SESSION["evd_zaber_hamacek"]!= true){
-	header('Location: /TP-2-0/view/index.php');
+	header('Location: /TP-2-0/web_app_ev_clip_about_p_transport/index.php');
 }
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 <title id="demo">SEM ZADEJTE NÁZEV</title>
-<link rel="stylesheet" href="../styles/stylopis.css">
-<link rel="stylesheet" href="../styles/stylopis_for_printer.css">
+<link rel="stylesheet" href="styles/stylopis.css">
+<link rel="stylesheet" href="styles/stylopis_for_printer.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -97,7 +97,7 @@ if(array_key_exists('odhlaseni',$_POST)){
 	$_SESSION["evd_zaber_hamacek"]= false;
 	session_unset();
 	session_destroy();
-	header('Location: /TP-2-0/view/index.php');
+	header('Location: /TP-2-0/web_app_ev_clip_about_p_transport/index.php');
 }
 ?>
 
@@ -120,7 +120,7 @@ if(array_key_exists('odhlaseni',$_POST)){
         document.getElementById("txtHint").innerHTML = this.responseText;
       }
     };
-	xmlhttp.open("GET", '../model/zabery.php?podminka='+text);
+	xmlhttp.open("GET", 'other/zabery.php?podminka='+text);
     xmlhttp.send();
 		}catch(err) {
 			console.log(err.message);

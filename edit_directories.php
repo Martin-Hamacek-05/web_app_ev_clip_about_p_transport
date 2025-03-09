@@ -1,14 +1,14 @@
 <?php
 session_start();
 if($_SESSION["evd_zaber_hamacek"]!= true){
-	header('Location: /TP-2-0/view/index.php');
+	header('Location: /TP-2-0/web_app_ev_clip_about_p_transport/index.php');
 }
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 <title id="demo">SEM ZADEJTE NÁZEV</title>
-<link rel="stylesheet" href="../styles/stylopis.css">
+<link rel="stylesheet" href="styles/stylopis.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- <script src="lib/urlparse.js"></script>-->
 </head>
@@ -58,13 +58,13 @@ foreach($a as $e){
 if(array_key_exists('delete',$_POST)){
 
 	rmdir($_SESSION["name"]."\\".$_POST["directory"]."\\");
-	header('Location: /TP-2-0/view/edit_directories.php');
+	header('Location: /TP-2-0/web_app_ev_clip_about_p_transport/edit_directories.php');
 }
 
 if(array_key_exists('create',$_POST)){
 
 	mkdir($_SESSION["name"]."\\".$_POST["directory"]."\\");
-	header('Location: /TP-2-0/view/edit_directories.php');
+	header('Location: /TP-2-0/web_app_ev_clip_about_p_transport/edit_directories.php');
 }
 
 ?>

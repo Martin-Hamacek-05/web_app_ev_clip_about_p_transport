@@ -1,14 +1,14 @@
 <?php
 session_start();
 if($_SESSION["evd_zaber_hamacek"]!= true){
-	header('Location: /TP-2-0/view/index.php');
+	header('Location: /TP-2-0/web_app_ev_clip_about_p_transport/index.php');
 }
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 <title id="demo">SEM ZADEJTE NÁZEV</title>
-<link rel="stylesheet" href="../styles/stylopis.css">
+<link rel="stylesheet" href="styles/stylopis.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- <script src="lib/urlparse.js"></script>-->
 </head>
@@ -32,7 +32,7 @@ if($_SESSION["evd_zaber_hamacek"]!= true){
 	</form>
 	<form action="statistika_loaded.php" method="GET">
 	<select class="vstup" name="procedura">
-		<?php include("../model/load_statistic.php");
+		<?php include("other/load_statistic.php");
 		$statistic = new statistic;
 		$statistic->procedure_load();
 		?>
@@ -41,7 +41,7 @@ if($_SESSION["evd_zaber_hamacek"]!= true){
 	<select class="vstup" id="rok" name="parametr">
 	<option value="---vyberte---" selected="selected">vyberte</option>;
 	<?php 
-	include("../model/vypisroku.php");
+	include("other/vypisroku.php");
 	?>
 	</select>
 	<select class="vstup" name="graph">

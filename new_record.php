@@ -1,16 +1,15 @@
 <?php
 session_start();
 if($_SESSION["evd_zaber_hamacek"]!= true){
-	header('Location: /TP-2-0/view/index.php');
+	header('Location: /TP-2-0/web_app_ev_clip_about_p_transport/index.php');
 }
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 <title id="demo">SEM ZADEJTE NÁZEV</title>
-<link rel="stylesheet" href="../styles/stylopis.css">
+<link rel="stylesheet" href="styles/stylopis.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="lib/urlparse.js"></script>
 </head>
 
 
@@ -22,7 +21,7 @@ if($_SESSION["evd_zaber_hamacek"]!= true){
 </header>
 
 
-<script src="../js/info.js"></script>
+<script src="js/info.js"></script>
 
 <nav>
 <form action="list.php">
@@ -36,7 +35,7 @@ if($_SESSION["evd_zaber_hamacek"]!= true){
 <form method="post" enctype="multipart/form-data">
 <input type="file" class="button" name="fileToUpload" id="fileToUpload" onchange="showname()">
 <?php
-include("../model/connection.php");
+include("other/connection.php");
 echo "<table class='podrobnostitab'>";
 	echo "<tr><th class='podrobnostitab'>Označení záznamu</th><td><input name='ozcnzaz' id='file_ozncn' type='input' class='vstupIII'></td></tr>";
 	echo "<tr><th class='podrobnostitab'>Pořízeno</th><td><input name='datump' type='date' class='vstupIII'></td></tr>";
@@ -64,8 +63,8 @@ echo "<table class='podrobnostitab'>";
 	echo "<tr><th class='podrobnostitab'>Formát záznamu</th><td>";?>
 	<select class='vstup' name='formats'>
 <?php
-include("../model/vypisy.php");
-include("../model/spravazaber.php");
+include("other/vypisy.php");
+include("other/spravazaber.php");
 $vypisysvybr = new Vypisy();
 $vypisysvybr -> vypisformaty($servername,$username,$password,$dbname);
 ?>	

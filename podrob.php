@@ -1,14 +1,14 @@
 <?php
 session_start();
 if($_SESSION["evd_zaber_hamacek"]!= true){
-	header('Location: /TP-2-0/view/index.php');
+	header('Location: /TP-2-0/web_app_ev_clip_about_p_transport/index.php');
 }
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 <title id="demo">SEM ZADEJTE NÁZEV</title>
-<link rel="stylesheet" href="../styles/stylopis.css">
+<link rel="stylesheet" href="styles/stylopis.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- <script src="lib/urlparse.js"></script>-->
 </head>
@@ -34,8 +34,8 @@ if($_SESSION["evd_zaber_hamacek"]!= true){
 <div class="vlevo">
 <form method="post">
 <?php
-include("../model/spravazaber.php");
-include("../model/connection.php");
+include("other/spravazaber.php");
+include("other/connection.php");
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
@@ -63,7 +63,7 @@ if ($result->num_rows > 0) {
 	echo "<tr><th class='podrobnostitab'>Formát záznamu</th><td>";?>
 	<select class='vstup' name='formats'>
 <?php
-include("../model/vypisy.php");
+include("other/vypisy.php");
 $vypisysvybr = new Vypisy();
 $vypisysvybr -> vypisformatysvyberem($servername,$username,$password,$dbname);
 ?>	
@@ -177,7 +177,7 @@ if(array_key_exists('delete_vehicle_on_list',$_POST)){
         document.getElementById("txtHint").innerHTML = this.responseText;
       }
     };
-	xmlhttp.open("GET", '../model/podrob_vehicle_on_clip.php?id='+document.getElementById('id_').value);
+	xmlhttp.open("GET", 'other/podrob_vehicle_on_clip.php?id='+document.getElementById('id_').value);
     xmlhttp.send();
 		}catch(err) {
 			console.log(err.message);

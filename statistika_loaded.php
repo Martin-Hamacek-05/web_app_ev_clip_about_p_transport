@@ -1,15 +1,15 @@
 <?php
 session_start();
 if($_SESSION["evd_zaber_hamacek"]!= true){
-	header('Location: /TP-2-0/view/index.php');
+	header('Location: /TP-2-0/web_app_ev_clip_about_p_transport/index.php');
 }
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 <title id="demo">SEM ZADEJTE NÁZEV</title>
-<link rel="stylesheet" href="../styles/stylopis.css">
-<link rel="stylesheet" href="../styles/stylopis_for_printer.css">
+<link rel="stylesheet" href="styles/stylopis.css">
+<link rel="stylesheet" href="styles/stylopis_for_printer.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- <script src="lib/urlparse.js"></script>-->
 </head>
@@ -35,7 +35,7 @@ if($_SESSION["evd_zaber_hamacek"]!= true){
 <section class="vyrez ">
 <?php
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-include("../model/connection.php");
+include("other/connection.php");
 
 ?>
 <div class="polozka" id="procedury"> 
@@ -53,7 +53,7 @@ for(var i=0; i< length; i++){
 }
 </script>
 
-<?php include("../model/load_statistic.php"); ?>
+<?php include("other/load_statistic.php"); ?>
 
 <table class='vypisdat_II' style="width:100%"id="data">
 <?php 

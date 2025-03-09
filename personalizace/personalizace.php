@@ -1,14 +1,14 @@
 <?php
 session_start();
 if($_SESSION["evd_zaber_hamacek"]!= true){
-	header('Location: /TP-2-0/view/index.php');
+	header('Location: /TP-2-0/web_app_ev_clip_about_p_transport/index.php');
 }
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 <title id="demo">SEM ZADEJTE NÁZEV</title>
-<link rel="stylesheet" href="../../styles/stylopis.css">
+<link rel="stylesheet" href="../styles/stylopis.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -36,7 +36,7 @@ if($_SESSION["evd_zaber_hamacek"]!= true){
 include "personalization_class.php";
 if($_SESSION["isadmin"]==1){
 	
-	$string = file_get_contents("../../js/info.json");
+	$string = file_get_contents("../js/info.json");
 	$json_a = json_decode($string);
 
 	echo "<form method='POST'>";
@@ -53,7 +53,7 @@ if($_SESSION["isadmin"]==1){
 		$personalization_class->set_name($_POST['headerr']);
 		$personalization_class->set_owner($_POST['owner']);
 		$personalization_class->set_banner($_POST['banner']);
-		file_put_contents('../../js/info.json', json_encode($personalization_class,JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES));
+		file_put_contents('../js/info.json', json_encode($personalization_class,JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES));
 	}
 
 	
@@ -68,6 +68,6 @@ if($_SESSION["isadmin"]==1){
 </main>
 
 </div>
-<script src="../../js/info.js"></script>
+<script src="../js/info.js"></script>
 </body>
 </html>
