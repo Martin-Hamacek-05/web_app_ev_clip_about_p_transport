@@ -1,0 +1,67 @@
+@media print {
+  .hidden-print {
+    display: none;
+  }
+  
+  body{
+	  color:#000000;
+  }
+  
+	th.vypisdat{
+	border:2px solid #000000;
+	color:#000000;
+	}
+	
+	td.vypisdat{
+	border:1px solid #000000;
+	color:#000000;
+	text-decoration: none;
+	}
+	
+	th.vypisdat_II{
+	border:2px solid #000000;
+	color:#000000;
+	}
+	
+	td.vypisdat_II{
+	border:1px solid #000000;
+	color:#000000;
+	text-decoration: none;
+	}
+	
+	td{
+	border:1px solid #000000;
+	color:#000000;
+	text-decoration: none;
+	}
+	
+	tr.vypisdat{
+	border:1px solid #000000;
+	color:#000000;
+	}
+	
+	a:link {
+	  color: #000000;
+	  text-decoration: none;
+
+	}
+
+	/* visited link */
+	a:visited {
+	  color: #000000;
+	  text-decoration: none;
+
+	}
+
+	/* mouse over link */
+	a:hover {
+	  color: #000000;
+	  text-decoration: none;
+
+	}
+
+	#myPlot{
+		display:none;
+	}
+
+}
