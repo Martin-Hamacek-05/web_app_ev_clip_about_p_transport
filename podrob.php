@@ -1,13 +1,13 @@
 <?php
 session_start();
 if($_SESSION["evd_zaber_hamacek"]!= true){
-	header('Location: /TP-2-0/web_app_ev_clip_about_p_transport/index.php');
+		echo "<script>window.location.replace('http://".$_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT'].substr($_SERVER['PHP_SELF'], 0, strrpos($_SERVER['PHP_SELF'], '/'))."/index.php');</script>";
 }
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-<title id="demo">SEM ZADEJTE NÁZEV</title>
+<title id="demo">ZÁBĚR</title>
 <link rel="stylesheet" href="styles/stylopis.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- <script src="lib/urlparse.js"></script>-->
@@ -18,7 +18,7 @@ if($_SESSION["evd_zaber_hamacek"]!= true){
 
 <div class="container">
 <header>
-<h1 id="demoI">SEM ZADEJTE NÁZEV</h1>
+<h1 id="demoI">VÝPIS</h1>
 </header>
 
 <!-- <script src="../js/info.js"></script>-->
@@ -51,7 +51,7 @@ $dataII = "";
 if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
-
+	$dataI = $row["name_of_clip"];
 	
 
 	echo "<table class='podrobnostitab'>";
@@ -147,7 +147,7 @@ if(array_key_exists('delete_vehicle_on_list',$_POST)){
 	echo "<input type='text' id='id_'/ value='".$row["id"]."' hidden>";
     echo "<h1>Záběr: ".$row["name_of_clip"]."</h1>";
 	echo "<video style='width:100%;' controls>";
-	echo "<source src='".$row['file_url']."/".$dataI.".mp4' type='video/mp4'>";
+	echo "<source src='http://".$_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT']."/disk1/".$row['file_url']."/".$dataI."' type='video/mp4'>";
 	echo "Your browser does not support the video tag.";
 	echo "</video>";
 	}

@@ -1,4 +1,4 @@
-var request = new Request('../js/info.json');
+var request = new Request('info.json');
 
   fetch(request).then(function(response) {
     return response.json();

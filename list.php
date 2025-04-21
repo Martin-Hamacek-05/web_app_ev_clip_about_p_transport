@@ -1,7 +1,7 @@
 <?php
 session_start();
 if($_SESSION["evd_zaber_hamacek"]!= true){
-	header('Location: /TP-2-0/web_app_ev_clip_about_p_transport/index.php');
+		echo "<script>window.location.replace('http://".$_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT'].substr($_SERVER['PHP_SELF'], 0, strrpos($_SERVER['PHP_SELF'], '/'))."/index.php');</script>";
 }
 ?>
 <!DOCTYPE html>
@@ -50,11 +50,11 @@ if($_SESSION["evd_zaber_hamacek"]!= true){
 	</form>
 	
 	<form action="personalizace/personalizace.php">
-	<button class="vstup phoneonly hidden-print">Přispůsobení</button>
+	<button class="vstup phoneonly hidden-print">PŘIZPŮSOBIT</button>
 	</form>
 	
 	<form method="post">
-	<input type="submit" class="vstup phoneonly hidden-print" name="odhlaseni" value="odhlasit">
+	<input type="submit" class="vstup phoneonly hidden-print" name="odhlaseni" value="ODHLÁSIT">
 	</form>
 	
 	</div>
@@ -71,16 +71,17 @@ if($_SESSION["evd_zaber_hamacek"]!= true){
 	<button class="vstup nezobrazitm hidden-print">STATISTIKA
 	</button>
 	</form>
+		
 	<form action="user_manager/edituser.php">
 	<button class="vstup onright nezobrazitm hidden-print"><?php echo $_SESSION["name"] ?></button>
 	</form>
 	
 	<form action="personalizace/personalizace.php">
-	<button class="vstup onright nezobrazitm hidden-print">Přispůsobení</button>
+	<button class="vstup onright nezobrazitm hidden-print">PŘIZPŮSOBIT</button>
 	</form>
 	
 	<form method="post">
-	<input type="submit" class="vstup onright nezobrazitm hidden-print" name="odhlaseni" value="odhlasit">
+	<input type="submit" class="vstup onright nezobrazitm hidden-print" name="odhlaseni" value="ODHLÁSIT">
 	</form>
 	
 </nav>
@@ -97,14 +98,14 @@ if(array_key_exists('odhlaseni',$_POST)){
 	$_SESSION["evd_zaber_hamacek"]= false;
 	session_unset();
 	session_destroy();
-	header('Location: /TP-2-0/web_app_ev_clip_about_p_transport/index.php');
+		echo "<script>window.location.replace('http://".$_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT'].substr($_SERVER['PHP_SELF'], 0, strrpos($_SERVER['PHP_SELF'], '/'))."/index.php');</script>";
 }
 ?>
 
 </main>
 
 </div>
-<script src="../js/info.js"></script>
+<script src="js/info.js"></script>
 <script>
 	/*var x = document.getElementById("podrobnost");
 		x.style.display = "none";*/

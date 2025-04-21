@@ -1,13 +1,13 @@
 <?php
 session_start();
 if($_SESSION["evd_zaber_hamacek"]!= true){
-	header('Location: /TP-2-0/web_app_ev_clip_about_p_transport/index.php');
+		echo "<script>window.location.replace('http://".$_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT'].substr($_SERVER['PHP_SELF'], 0, strrpos($_SERVER['PHP_SELF'], '/'))."/index.php');</script>";
 }
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-<title id="demo">SEM ZADEJTE NÁZEV</title>
+<title id="demo">PŘIZPŮSOBENÍ</title>
 <link rel="stylesheet" href="../styles/stylopis.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -15,7 +15,7 @@ if($_SESSION["evd_zaber_hamacek"]!= true){
 
 <div class="container">
 <header>
-<h1 id="demoI">SEM ZADEJTE NÁZEV</h1>
+<h1 id="demoI">PŘIZPŮSOBENÍ</h1>
 </header>
 
 <nav>
@@ -36,7 +36,7 @@ if($_SESSION["evd_zaber_hamacek"]!= true){
 include "personalization_class.php";
 if($_SESSION["isadmin"]==1){
 	
-	$string = file_get_contents("../js/info.json");
+	$string = file_get_contents("../info.json");
 	$json_a = json_decode($string);
 
 	echo "<form method='POST'>";

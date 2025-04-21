@@ -1,6 +1,8 @@
 <?php
+
 	class Spravazaznamprozaber{
 	public function pridat(string $servername, string $username, string $password, string $dbname){	
+		$prefix = "C:\\";
 		$ozcn=$_POST['ozcnzaz'];
 		$dtmp=$_POST['datump'];
 		$cntd=$_POST['cslntdn'];
@@ -26,15 +28,11 @@
 		
 		$uploadOk = 0;
 		
-		$target_dir = "E:\\";
-		$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+		$target_file = $prefix ."\\".$_POST["directory"]."\\". basename($_FILES["fileToUpload"]["name"]);
 		
 		if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-			echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+			echo "<script>window.location.replace('http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']."');</script>";
 		  }
-				
-		
-		header("Location: /TP/list.php");
 		
 		}catch(Exception $e){
 			$conn->rollback();
@@ -50,7 +48,6 @@
 	public function upravit (string $servername, string $username, string $password, string $dbname){	
 		$ozncnzaznam_puvod = $_POST['ozncnzaznam_puvod'];
 		$dtmp_puvod =$_POST['datump_puvod'];
-		$ozncnzaznam=$_POST['ozncnzaznam'];
 		$dtmp=$_POST['datump'];
 		$cntd=$_POST['cslntdn'];
 		$pjoj=$_POST['prjodj'];
@@ -62,7 +59,7 @@
 		$countv = $_POST['countvehicle'];
 		
 		$conn = new mysqli($servername, $username, $password, $dbname);
-		$sql = "update clip set name_of_clip = '".$ozncnzaznam."',created='".$dtmp."',number_of_filming_day=".$cntd.",arrive_or_depart=".$pjoj.",order_on_the_line=".$poradii.",stop_id=".$zstv.",line_id=".$lnk.",formats_id=".$frmt." where id = ".$ozncnzaznam_puvod.";";
+		$sql = "update clip set created='".$dtmp."',number_of_filming_day=".$cntd.",arrive_or_depart=".$pjoj.",order_on_the_line=".$poradii.",stop_id=".$zstv.",line_id=".$lnk.",formats_id=".$frmt." where id = ".$ozncnzaznam_puvod.";";
 		
 		$result = $conn->query($sql);
 		$conn->close();
@@ -71,7 +68,7 @@
 	
 	public function smazat(string $servername, string $username, string $password, string $dbname){
 		$ozncnzaznam_puvod = $_GET['id'];
-
+		$prefix = "C:\\".$_POST["directory"];
 		$conn = new mysqli($servername, $username, $password, $dbname);
 		
 		try{

@@ -1,7 +1,7 @@
 <?php
 session_start();
 if($_SESSION["evd_zaber_hamacek"]!= true){
-	header('Location: /TP-2-0/web_app_ev_clip_about_p_transport/index.php');
+	echo "<script>window.location.replace('http://".$_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT'].substr($_SERVER['PHP_SELF'], 0, strrpos($_SERVER['PHP_SELF'], '/'))."/index.php');</script>";
 }
 ?>
 <!DOCTYPE html>
@@ -15,7 +15,9 @@ if($_SESSION["evd_zaber_hamacek"]!= true){
 
 
 <body>
+<?php
 
+?>
 <div class="container">
 <header>
 <h1 id="demoI">SEM ZADEJTE NÁZEV</h1>
@@ -46,10 +48,10 @@ if($_SESSION["evd_zaber_hamacek"]!= true){
 <h1>Výpis adresářu uživatele <?php echo $_SESSION["name"];?></h1>
 <div class="vlevo">
 <?php
-$dir = $_SESSION["name"];
+include("other/prefix.php");
 
 // Sort in ascending order - this is default
-$a = array_diff(scandir($dir), array('.', '..'));
+$a = array_diff(scandir($prefix), array('.', '..'));
 
 foreach($a as $e){
 	echo $e."<br>";
@@ -57,14 +59,14 @@ foreach($a as $e){
 
 if(array_key_exists('delete',$_POST)){
 
-	rmdir($_SESSION["name"]."\\".$_POST["directory"]."\\");
-	header('Location: /TP-2-0/web_app_ev_clip_about_p_transport/edit_directories.php');
+	rmdir($prefix.$_POST["directory"]."\\");
+	echo "<script>window.location.replace('http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']."');</script>";
 }
 
 if(array_key_exists('create',$_POST)){
 
-	mkdir($_SESSION["name"]."\\".$_POST["directory"]."\\");
-	header('Location: /TP-2-0/web_app_ev_clip_about_p_transport/edit_directories.php');
+	mkdir($prefix.$_POST["directory"]."\\");
+	echo "<script>window.location.replace('http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']."');</script>";
 }
 
 ?>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 if($_SESSION["evd_zaber_hamacek"]!= true){
-	header('Location: /TP-2-0/web_app_ev_clip_about_p_transport/index.php');
+		echo "<script>window.location.replace('http://".$_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT'].substr($_SERVER['PHP_SELF'], 0, strrpos($_SERVER['PHP_SELF'], '/'))."/index.php');</script>";
 }
 ?>
 <!DOCTYPE html>
@@ -36,6 +36,7 @@ if($_SESSION["evd_zaber_hamacek"]!= true){
 <input type="file" class="button" name="fileToUpload" id="fileToUpload" onchange="showname()">
 <?php
 include("other/connection.php");
+include("other/prefix.php");
 echo "<table class='podrobnostitab'>";
 	echo "<tr><th class='podrobnostitab'>Označení záznamu</th><td><input name='ozcnzaz' id='file_ozncn' type='input' class='vstupIII'></td></tr>";
 	echo "<tr><th class='podrobnostitab'>Pořízeno</th><td><input name='datump' type='date' class='vstupIII'></td></tr>";
@@ -44,7 +45,7 @@ echo "<table class='podrobnostitab'>";
 	echo "<tr><th class='podrobnostitab'>Adresář</th><td>";?>
 	<select class='vstup' name='directory'>
 	<?php
-	$dir = "C:\\Apache24\\htdocs\\";
+	$dir = $prefix;
 
 	// Sort in ascending order - this is default
 	$a = array_diff(scandir($dir), array('.', '..'));

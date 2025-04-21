@@ -1,7 +1,7 @@
 <?php
 session_start();
 if($_SESSION["evd_zaber_hamacek"]!= true){
-	header('Location: /TP-2-0/web_app_ev_clip_about_p_transport/index.php');
+		echo "<script>window.location.replace('http://".$_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT'].substr($_SERVER['PHP_SELF'], 0, strrpos($_SERVER['PHP_SELF'], '/'))."/index.php');</script>";
 }
 ?>
 <!DOCTYPE html>
@@ -21,8 +21,8 @@ if($_SESSION["evd_zaber_hamacek"]!= true){
 <h1 id="demoI">SEM ZADEJTE NÁZEV</h1>
 </header>
 
-<!-- <script src="../js/info.js"></script>-->
-<!-- <script src="lib/sorttable.js"></script>-->
+<script src="js/info.js"></script>
+
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
 <nav>

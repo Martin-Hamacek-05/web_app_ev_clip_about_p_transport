@@ -38,15 +38,15 @@ if(array_key_exists('login',$_POST)){
 					$_SESSION["name"] = $row['login_name'];
 					$_SESSION["isadmin"] = $row['is_admin'];
 					$_SESSION["evd_zaber_hamacek"] = true;
-					header('Location: /TP-2-0/web_app_ev_clip_about_p_transport/list.php');
+						echo "<script>window.location.replace('http://".$_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT'].substr($_SERVER['PHP_SELF'], 0, strrpos($_SERVER['PHP_SELF'], '/'))."/list.php');</script>";
 				} 
 				
 			} else {
-				header('Location: /TP-2-0/web_app_ev_clip_about_p_transport/index.php');
+					echo "<script>window.location.replace('http://".$_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT'].substr($_SERVER['PHP_SELF'], 0, strrpos($_SERVER['PHP_SELF'], '/'))."/index.php');</script>";
 			}
 		$conn->close();
 	
-	header("Location: /TP-2-0/web_app_ev_clip_about_p_transport/list.php");
+		echo "<script>window.location.replace('http://".$_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT'].substr($_SERVER['PHP_SELF'], 0, strrpos($_SERVER['PHP_SELF'], '/'))."/list.php');</script>";
 }
 ?>
 <script src="../js/info.js"></script>

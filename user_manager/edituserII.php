@@ -7,7 +7,7 @@ if($_SESSION["evd_zaber_hamacek"]!= true){
 <!DOCTYPE html>
 <html>
 <head>
-<title id="demo">SEM ZADEJTE NÁZEV</title>
+<title id="demo">SPRÁVA UŽIVATELE</title>
 <link rel="stylesheet" href="../styles/stylopis.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="lib/urlparse.js"></script>
@@ -18,7 +18,7 @@ if($_SESSION["evd_zaber_hamacek"]!= true){
 
 <div class="container">
 <header>
-<h1 id="demoI">SEM ZADEJTE NÁZEV</h1>
+<h1 id="demoI">SPRÁVA UŽIVATELE</h1>
 </header>
 
 <script src="../js/info.js"></script>
